@@ -52,11 +52,17 @@ def simulación_tienda():
         producto_comprar = random.choice(productos_disponibles)
         print(f"El cliente está interesado en {producto_comprar.nombre}.")
         oferta = int(input("Ingresa el precio establecido del objeto: "))
-        if oferta < cliente.preciomin:
-            print("El cliente rechaza la oferta y se va de la tienda.")
-        elif oferta > cliente.preciomax:
-            print("El cliente sale corriendo de la tienda")
-        else:
-            print("El cliente acepta la oferta y compra el objeto")
+        while True:
+            if oferta < cliente.preciomin:
+                print("El cliente rechaza la oferta pero quiere regatear.")
+                oferta = int(input(f"Ingresa otra oferta para {producto_comprar.nombre}: "))
+            elif oferta > cliente.preciomax:
+                print("El cliente sale corriendo de la tienda")
+                break
+            else:
+                print("El cliente acepta la oferta y compra el objeto")
+                break
+
+simulación_tienda()
 
 simulación_tienda()
