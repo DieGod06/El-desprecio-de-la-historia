@@ -64,5 +64,3 @@ def simulación_tienda():
                 break
 
 simulación_tienda()
-
-simulación_tienda()
